@@ -105,8 +105,12 @@ nav ul li a:hover {
 
 /* Hero Image */
 .hero-image img {
-    width: 200px;
-    border-radius: 50%;
-    border: 3px solid #FFD700;
-    box-shadow: 0px 0px 10px #FFD700;
+    width: 250px; /* Adjust the size */
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px; /* Rounded corners */
+    border: 4px solid #FFD700; /* Golden border */
+    box-shadow: 0px 0px 15px #FFD700; /* Soft golden glow */
+    padding: 5px; /* Adds some spacing inside the border */
+    background: black; /* Optional: Background for contrast */
 }
