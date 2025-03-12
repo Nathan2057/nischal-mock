@@ -16,9 +16,9 @@ body {
 nav {
     width: 100%;
     display: flex;
-    flex-direction: column; /* Stacks logo, icons, and menu items */
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 50px;
     background: black;
     position: fixed;
     top: 0;
@@ -27,25 +27,29 @@ nav {
     box-shadow: 0px 5px 10px rgba(0, 255, 0, 0.2); /* Green glow for vibrance */
 }
 
+/* Left Section (Logo + Social Icons) */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 /* Logo */
 .logo {
     font-size: 24px;
     font-weight: bold;
     color: #FFD700; /* Golden */
-    margin-bottom: 5px; /* Spacing below logo */
 }
 
-/* Social Icons - Now Below Logo */
+/* Social Icons */
 .social-icons {
     display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 10px; /* Space before menu items */
+    gap: 10px;
 }
 
 .social-icons a {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 20px;
     color: #FFD700; /* Golden Icons */
     transition: transform 0.3s, color 0.3s;
 }
@@ -55,7 +59,7 @@ nav {
     transform: scale(1.2);
 }
 
-/* Navigation Menu - Centered at Top */
+/* Centered Navigation Menu */
 .nav-menu {
     display: flex;
     gap: 30px;
@@ -73,7 +77,7 @@ nav {
     color: #00FF00; /* Green Hover */
 }
 
-/* Hero Section Container - Glowing Green Box with No Background */
+/* Hero Section Container - Glowing Green Box */
 .hero-container {
     padding: 50px;
     border-radius: 20px;
@@ -91,7 +95,7 @@ nav {
 .hero-text {
     flex: 1;
     text-align: left;
-    color: white; /* Adjusted for contrast */
+    color: white;
 }
 
 .hero-text h1 {
@@ -136,14 +140,14 @@ nav {
 
 /* Hero Image */
 .hero-image img {
-    width: 250px; /* Adjust the size */
+    width: 250px;
     height: auto;
     object-fit: cover;
-    border-radius: 20px; /* Rounded corners */
+    border-radius: 20px;
     border: 4px solid #FFD700; /* Golden border */
     box-shadow: 0px 0px 15px #FFD700; /* Soft golden glow */
     padding: 5px;
-    background: black; /* Keeps the black contrast */
+    background: black;
 }
 
 /* Responsive Design for Mobile */
@@ -152,6 +156,11 @@ nav {
         flex-direction: column;
         align-items: center;
         padding: 10px;
+    }
+
+    .nav-left {
+        flex-direction: column;
+        gap: 10px;
     }
 
     .nav-menu {
