@@ -62,7 +62,7 @@ nav ul li a:hover {
     color: #00FF00; /* Green Hover */
 }
 
-/* Social Icons (Using FontAwesome) */
+/* Social Icons */
 .social-icons {
     display: flex;
     gap: 15px;
@@ -86,11 +86,18 @@ nav ul li a:hover {
 .hero {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; /* Centers content vertically */
     padding: 50px;
     text-align: left;
-    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+
+ /* Existing styles */
+    background: linear-gradient(to right, #000000, #0a0a0a); /* Subtle black gradient */
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.3); /* Light green glow */
 }
+
 
 /* Hero Text */
 .hero-text {
@@ -150,3 +157,18 @@ nav ul li a:hover {
     padding: 5px; /* Adds some spacing inside the border */
     background: black; /* Keeps the black contrast */
 }
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+    .hero-image {
+        margin-top: 20px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
