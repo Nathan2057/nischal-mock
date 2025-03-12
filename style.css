@@ -18,7 +18,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
+    padding: 15px 50px;
     background: black;
     position: fixed;
     top: 0;
@@ -60,18 +60,26 @@ nav {
     transform: scale(1.2);
 }
 
-/* Centered Navigation Menu */
+/* Centered Navigation Menu Encased in Grey */
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #D3D3D3; /* Light Grey Background */
+    padding: 10px 0;
+    margin-top: 50px;
+}
+
+/* Navigation Menu */
 .nav-menu {
     display: flex;
-    gap: 30px;
+    gap: 40px;
     font-size: 18px;
-    justify-content: center;
-    flex-grow: 1; /* Ensures it's in the center */
 }
 
 .nav-menu a {
     text-decoration: none;
-    color: white;
+    color: black; /* Black font */
     font-weight: bold;
     transition: color 0.3s;
 }
@@ -164,6 +172,10 @@ nav {
     .nav-left {
         align-items: center;
         gap: 10px;
+    }
+
+    .nav-container {
+        padding: 10px 0;
     }
 
     .nav-menu {
