@@ -18,7 +18,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 80px;
+    padding: 10px 60px; /* Reduced padding */
     background: transparent;
     position: fixed;
     top: 0;
@@ -26,18 +26,45 @@ nav {
     z-index: 1000;
 }
 
+/* Left Section: Logo & Social Icons */
+.nav-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 /* Logo */
 .logo {
-    font-size: 20px;
+    font-size: 18px; /* Slightly smaller */
     font-weight: bold;
     color: white;
+    margin-bottom: 2px; /* Reduced space below the logo */
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 16px; /* Smaller icons */
+    color: white;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00AEEF;
+    transform: scale(1.2);
 }
 
 /* Centered Navigation Menu */
 .nav-menu {
     display: flex;
-    gap: 40px;
-    font-size: 16px;
+    gap: 30px;
+    font-size: 14px; /* Smaller font */
+    align-items: center;
 }
 
 .nav-menu a {
@@ -51,32 +78,14 @@ nav {
     color: #00AEEF; /* Blue Hover */
 }
 
-/* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    text-decoration: none;
-    font-size: 20px;
-    color: white;
-    transition: transform 0.3s, color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #00AEEF;
-    transform: scale(1.2);
-}
-
 /* Hero Section */
 .hero-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     max-width: 1100px;
-    margin: 140px auto;
-    padding: 50px;
+    margin: 100px auto; /* Reduced margin for better alignment */
+    padding: 40px; /* Adjusted for better spacing */
     position: relative;
 }
 
@@ -87,7 +96,7 @@ nav {
 }
 
 .hero-text h1 {
-    font-size: 50px;
+    font-size: 44px; /* Adjusted size */
     font-weight: bold;
     margin: 0;
 }
@@ -99,29 +108,29 @@ nav {
 }
 
 .hero-text h2 {
-    font-size: 26px;
+    font-size: 22px;
     color: white;
     font-weight: 500;
 }
 
 .hero-text p {
-    font-size: 18px;
+    font-size: 16px;
     color: #ddd;
-    margin-top: 15px;
-    line-height: 1.5;
+    margin-top: 10px;
+    line-height: 1.4;
 }
 
 /* Download CV Button */
 .download-btn {
-    padding: 14px 28px;
+    padding: 12px 24px;
     border: none;
     border-radius: 30px;
     background: linear-gradient(to right, #00AEEF, #9B67FF);
     color: white;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    margin-top: 25px;
+    margin-top: 20px;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3);
 }
@@ -134,21 +143,21 @@ nav {
 /* Hero Image - Replacing Circle with Rounded Rectangle */
 .hero-image {
     position: relative;
-    width: 280px;
-    height: 300px;
-    border-radius: 30px;
+    width: 250px;
+    height: 270px;
+    border-radius: 20px;
     overflow: hidden;
     background: linear-gradient(to right, #00AEEF, #9B67FF);
-    padding: 5px;
+    padding: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero-image img {
-    width: 270px;
-    height: 290px;
-    border-radius: 25px;
+    width: 240px;
+    height: 260px;
+    border-radius: 15px;
 }
 
 /* Background Rectangles */
@@ -156,18 +165,18 @@ nav {
     position: absolute;
     top: 50%;
     right: 10%;
-    width: 220px;
-    height: 140px;
+    width: 200px;
+    height: 120px;
     background: rgba(0, 174, 239, 0.2);
-    border-radius: 20px;
+    border-radius: 15px;
     transform: rotate(-5deg);
 }
 
 .rectangles:nth-child(2) {
     top: 70%;
     left: 10%;
-    width: 270px;
-    height: 160px;
+    width: 230px;
+    height: 140px;
     background: rgba(155, 103, 255, 0.2);
     transform: rotate(5deg);
 }
@@ -177,12 +186,17 @@ nav {
     nav {
         flex-direction: column;
         align-items: center;
-        padding: 15px;
+        padding: 10px;
+    }
+
+    .nav-left {
+        align-items: center;
+        gap: 5px; /* Reduced spacing */
     }
 
     .nav-menu {
         flex-direction: column;
-        gap: 10px;
+        gap: 5px; /* Adjusted for mobile */
     }
 
     .hero-container {
@@ -192,7 +206,7 @@ nav {
     }
 
     .hero-image {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 
     .rectangles {
