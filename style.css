@@ -45,14 +45,17 @@ nav ul li a:hover {
 }
 
 /* Social Icons (Using FontAwesome) */
+/* Social Icons */
 .social-icons {
     display: flex;
     gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .social-icons a {
     text-decoration: none;
-    font-size: 24px;
+    font-size: 28px; /* Adjust icon size */
     color: #FFD700; /* Golden Icons */
     transition: transform 0.3s, color 0.3s;
 }
