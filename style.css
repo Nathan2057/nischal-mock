@@ -1,9 +1,9 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #000000, #0a0a0a, #111111); /* Black with subtle vibrance */
+    background: #0A0F1E; /* Dark blue background */
     color: white;
     text-align: center;
     min-height: 100vh;
@@ -19,94 +19,71 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: black;
+    background: transparent;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
-    box-shadow: 0px 5px 10px rgba(0, 255, 0, 0.2); /* Green glow for vibrance */
-}
-
-/* Left Section (Logo + Social Icons) */
-.nav-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align to the left */
 }
 
 /* Logo */
 .logo {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    color: #FFD700; /* Golden */
-    margin-bottom: 5px; /* Space between logo and icons */
+    color: white;
 }
 
-/* Social Icons - Now directly below Logo */
+/* Centered Navigation Menu */
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    font-size: 16px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #00AEEF; /* Blue Hover */
+}
+
+/* Social Icons */
 .social-icons {
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
 .social-icons a {
     text-decoration: none;
     font-size: 20px;
-    color: #FFD700; /* Golden Icons */
+    color: white;
     transition: transform 0.3s, color 0.3s;
 }
 
 .social-icons a:hover {
-    color: #00FF00; /* Green on Hover */
+    color: #00AEEF;
     transform: scale(1.2);
 }
 
-/* Centered Navigation Menu Encased in Grey */
-.nav-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: #D3D3D3; /* Light Grey Background */
-    padding: 10px 0;
-    margin-top: 50px;
-}
-
-/* Navigation Menu */
-.nav-menu {
-    display: flex;
-    gap: 40px;
-    font-size: 18px;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: black; /* Black font */
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-    color: #00FF00; /* Green Hover */
-}
-
-/* Hero Section Container - Glowing Green Box */
+/* Hero Section */
 .hero-container {
-    padding: 50px;
-    border-radius: 20px;
-    border: 2px solid #00FF00; /* Green Border */
-    box-shadow: 0px 0px 20px rgba(0, 255, 0, 0.7); /* Glowing Green Effect */
-    max-width: 1000px;
-    margin: 120px auto 50px auto; /* Prevent overlap with fixed navbar */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: none; /* Removed background */
+    max-width: 1000px;
+    margin: 120px auto;
+    padding: 50px;
+    position: relative;
 }
 
 /* Hero Text */
 .hero-text {
     flex: 1;
     text-align: left;
-    color: white;
 }
 
 .hero-text h1 {
@@ -115,14 +92,15 @@ nav {
 }
 
 .hero-text .highlight {
-    background: linear-gradient(to right, #00FF00, #FFD700); /* Green to Gold Gradient */
+    background: linear-gradient(to right, #00AEEF, #9B67FF);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-text h2 {
     font-size: 24px;
-    color: #FFD700; /* Golden */
+    color: white;
+    font-weight: 500;
 }
 
 .hero-text p {
@@ -135,9 +113,9 @@ nav {
 .download-btn {
     padding: 12px 24px;
     border: none;
-    border-radius: 5px;
-    background: linear-gradient(to right, #00FF00, #FFD700); /* Green to Gold */
-    color: black;
+    border-radius: 30px;
+    background: linear-gradient(to right, #00AEEF, #9B67FF);
+    color: white;
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
@@ -145,37 +123,57 @@ nav {
 }
 
 .download-btn:hover {
-    background: linear-gradient(to right, #FFD700, #00FF00); /* Reverse Gradient */
+    background: linear-gradient(to right, #9B67FF, #00AEEF);
     transform: scale(1.05);
 }
 
 /* Hero Image */
+.hero-image {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(to right, #00AEEF, #9B67FF);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero-image img {
     width: 250px;
     height: auto;
-    object-fit: cover;
     border-radius: 20px;
-    border: 4px solid #FFD700; /* Golden border */
-    box-shadow: 0px 0px 15px #FFD700; /* Soft golden glow */
-    padding: 5px;
-    background: black;
 }
 
-/* Responsive Design for Mobile */
+/* Background Rectangles */
+.rectangles {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 200px;
+    height: 120px;
+    background: rgba(0, 174, 239, 0.2);
+    border-radius: 20px;
+    transform: rotate(-10deg);
+}
+
+.rectangles:nth-child(2) {
+    top: 70%;
+    left: 10%;
+    width: 250px;
+    height: 140px;
+    background: rgba(155, 103, 255, 0.2);
+    transform: rotate(10deg);
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
         align-items: center;
         padding: 10px;
-    }
-
-    .nav-left {
-        align-items: center;
-        gap: 10px;
-    }
-
-    .nav-container {
-        padding: 10px 0;
     }
 
     .nav-menu {
@@ -188,7 +186,11 @@ nav {
         text-align: center;
     }
 
-    .hero-image img {
+    .hero-image {
         margin-top: 20px;
+    }
+
+    .rectangles {
+        display: none; /* Hide decorative elements on smaller screens */
     }
 }
