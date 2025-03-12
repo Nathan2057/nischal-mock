@@ -3,9 +3,26 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #000; /* Black Theme */
-    color: white;
+    background: linear-gradient(to right, #d4ffdc, #f0fff4); /* Very Light Green Gradient */
+    color: black; /* Adjusted for better contrast */
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hero Section Container */
+.hero-container {
+    background: black; /* Keeps the black section */
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.3); /* Light green glow */
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 /* Navigation Bar */
@@ -15,6 +32,7 @@ nav {
     align-items: center;
     padding: 20px 50px;
     background: black;
+    border-radius: 20px 20px 0 0;
 }
 
 .logo {
@@ -45,7 +63,6 @@ nav ul li a:hover {
 }
 
 /* Social Icons (Using FontAwesome) */
-/* Social Icons */
 .social-icons {
     display: flex;
     gap: 15px;
@@ -72,12 +89,14 @@ nav ul li a:hover {
     align-items: center;
     padding: 50px;
     text-align: left;
-    max-width: 1000px;
-    margin: auto;
+    width: 100%;
 }
 
+/* Hero Text */
 .hero-text {
     flex: 1;
+    text-align: left;
+    color: white;
 }
 
 .hero-text h1 {
@@ -129,5 +148,5 @@ nav ul li a:hover {
     border: 4px solid #FFD700; /* Golden border */
     box-shadow: 0px 0px 15px #FFD700; /* Soft golden glow */
     padding: 5px; /* Adds some spacing inside the border */
-    background: black; /* Optional: Background for contrast */
+    background: black; /* Keeps the black contrast */
 }
