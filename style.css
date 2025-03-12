@@ -18,7 +18,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 50px;
+    padding: 10px 50px;
     background: black;
     position: fixed;
     top: 0;
@@ -30,8 +30,8 @@ nav {
 /* Left Section (Logo + Social Icons) */
 .nav-left {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left */
 }
 
 /* Logo */
@@ -39,9 +39,10 @@ nav {
     font-size: 24px;
     font-weight: bold;
     color: #FFD700; /* Golden */
+    margin-bottom: 5px; /* Space between logo and icons */
 }
 
-/* Social Icons */
+/* Social Icons - Now directly below Logo */
 .social-icons {
     display: flex;
     gap: 10px;
@@ -64,6 +65,8 @@ nav {
     display: flex;
     gap: 30px;
     font-size: 18px;
+    justify-content: center;
+    flex-grow: 1; /* Ensures it's in the center */
 }
 
 .nav-menu a {
@@ -159,7 +162,7 @@ nav {
     }
 
     .nav-left {
-        flex-direction: column;
+        align-items: center;
         gap: 10px;
     }
 
