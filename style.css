@@ -44,10 +44,22 @@ nav ul li a:hover {
     color: #00FF00; /* Green Hover */
 }
 
-/* Social Icons */
-.social-icons img {
-    width: 24px;
-    margin-left: 15px;
+/* Social Icons (Using FontAwesome) */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #FFD700; /* Golden Icons */
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00FF00; /* Green on Hover */
+    transform: scale(1.2);
 }
 
 /* Hero Section */
@@ -97,10 +109,12 @@ nav ul li a:hover {
     font-weight: bold;
     cursor: pointer;
     margin-top: 20px;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .download-btn:hover {
     background: linear-gradient(to right, #FFD700, #00FF00); /* Reverse Gradient */
+    transform: scale(1.05);
 }
 
 /* Hero Image */
