@@ -3,13 +3,9 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: #0A0F1E; /* Dark blue background */
+    background: #0A0F1E; /* Dark background */
     color: white;
     text-align: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 /* Navigation Bar */
@@ -18,53 +14,25 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 60px; /* Reduced padding */
-    background: transparent;
+    padding: 20px 80px;
     position: fixed;
     top: 0;
     left: 0;
+    background: transparent;
     z-index: 1000;
-}
-
-/* Left Section: Logo & Social Icons */
-.nav-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 /* Logo */
 .logo {
-    font-size: 18px; /* Slightly smaller */
+    font-size: 18px;
     font-weight: bold;
     color: white;
-    margin-bottom: 2px; /* Reduced space below the logo */
-}
-
-/* Social Icons */
-.social-icons {
-    display: flex;
-    gap: 10px;
-}
-
-.social-icons a {
-    text-decoration: none;
-    font-size: 16px; /* Smaller icons */
-    color: white;
-    transition: transform 0.3s, color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #00AEEF;
-    transform: scale(1.2);
 }
 
 /* Centered Navigation Menu */
 .nav-menu {
     display: flex;
-    gap: 30px;
-    font-size: 14px; /* Smaller font */
-    align-items: center;
+    gap: 40px;
 }
 
 .nav-menu a {
@@ -75,7 +43,25 @@ nav {
 }
 
 .nav-menu a:hover {
-    color: #00AEEF; /* Blue Hover */
+    color: #00AEEF;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #00AEEF;
+    transform: scale(1.2);
 }
 
 /* Hero Section */
@@ -83,9 +69,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1100px;
-    margin: 100px auto; /* Reduced margin for better alignment */
-    padding: 40px; /* Adjusted for better spacing */
+    max-width: 1000px;
+    margin: 140px auto;
+    padding: 50px;
     position: relative;
 }
 
@@ -96,7 +82,7 @@ nav {
 }
 
 .hero-text h1 {
-    font-size: 44px; /* Adjusted size */
+    font-size: 50px;
     font-weight: bold;
     margin: 0;
 }
@@ -108,29 +94,29 @@ nav {
 }
 
 .hero-text h2 {
-    font-size: 22px;
+    font-size: 26px;
     color: white;
     font-weight: 500;
 }
 
 .hero-text p {
-    font-size: 16px;
+    font-size: 18px;
     color: #ddd;
-    margin-top: 10px;
-    line-height: 1.4;
+    margin-top: 15px;
+    line-height: 1.5;
 }
 
 /* Download CV Button */
 .download-btn {
-    padding: 12px 24px;
+    padding: 14px 28px;
     border: none;
     border-radius: 30px;
     background: linear-gradient(to right, #00AEEF, #9B67FF);
     color: white;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 25px;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3);
 }
@@ -140,45 +126,35 @@ nav {
     transform: scale(1.05);
 }
 
-/* Hero Image - Replacing Circle with Rounded Rectangle */
+/* Hero Image */
 .hero-image {
     position: relative;
-    width: 250px;
-    height: 270px;
-    border-radius: 20px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
     overflow: hidden;
     background: linear-gradient(to right, #00AEEF, #9B67FF);
-    padding: 4px;
+    padding: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .hero-image img {
-    width: 240px;
-    height: 260px;
-    border-radius: 15px;
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
 }
 
-/* Background Rectangles */
-.rectangles {
+/* Decorative Circle Overlay */
+.circle-overlay {
     position: absolute;
-    top: 50%;
-    right: 10%;
-    width: 200px;
-    height: 120px;
-    background: rgba(0, 174, 239, 0.2);
-    border-radius: 15px;
-    transform: rotate(-5deg);
-}
-
-.rectangles:nth-child(2) {
-    top: 70%;
-    left: 10%;
-    width: 230px;
-    height: 140px;
-    background: rgba(155, 103, 255, 0.2);
-    transform: rotate(5deg);
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 174, 239, 0.5);
+    top: 20px;
+    left: -40px;
 }
 
 /* Responsive Design */
@@ -186,17 +162,12 @@ nav {
     nav {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
-    }
-
-    .nav-left {
-        align-items: center;
-        gap: 5px; /* Reduced spacing */
+        padding: 15px;
     }
 
     .nav-menu {
         flex-direction: column;
-        gap: 5px; /* Adjusted for mobile */
+        gap: 10px;
     }
 
     .hero-container {
@@ -206,10 +177,6 @@ nav {
     }
 
     .hero-image {
-        margin-top: 15px;
-    }
-
-    .rectangles {
-        display: none; /* Hide decorative elements on smaller screens */
+        margin-top: 20px;
     }
 }
