@@ -8,10 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateSlides() {
     slides.forEach((slide, i) => {
       slide.classList.remove('active', 'left', 'right', 'hidden');
-      // Calculate offset relative to currentIndex (wrap-around handled below)
       let offset = i - currentIndex;
       
-      // Wrap-around: if offset is less than -Math.floor(total/2), add total.
+      // Wrap-around adjustment for offsets:
       if (offset < -Math.floor(total / 2)) {
         offset += total;
       }
