@@ -1,183 +1,270 @@
 /* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #0A0F1E; /* Dark background */
-    color: white;
-    text-align: center;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0A0F1E; /* Dark background */
+  color: white;
+  text-align: center;
 }
 
 /* Navigation Bar */
 nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 80px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: transparent;
-    z-index: 1000;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  z-index: 1000;
 }
 
-/* Logo with MP4 Video */
-.logo video {
-    width: 120px; /* Adjust as needed */
-    height: auto;
-    display: block;
-    border-radius: 10px; /* Optional rounded corners */
+/* Left side: Gennex Star Logo + Social Icons */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-/* Centered Navigation Menu */
-.nav-menu {
-    display: flex;
-    gap: 40px;
+/* GENNEX Star Logo (scaled down for nav) */
+.logo {
+  position: relative;
+  width: 120px; /* Adjust as needed */
+  height: 60px; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
 }
 
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: color 0.3s;
+/* Star shape */
+.star {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: -10px;  /* Adjust position */
+  left: 20px;  /* Center horizontally */
+  background: radial-gradient(circle at 50% 40%, #3b74bd 40%, #182642 100%);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  z-index: -1;
 }
 
-.nav-menu a:hover {
-    color: #00AEEF;
+/* Ribbons */
+.ribbon {
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(to right, #0068ff, #42a0ff);
+  clip-path: polygon(
+    0% 50%,
+    20% 0%,
+    100% 0%,
+    80% 50%,
+    100% 100%,
+    20% 100%
+  );
+}
+
+.ribbon.left {
+  left: -40px;
+  top: 20px;
+}
+
+.ribbon.right {
+  right: -40px;
+  top: 20px;
+  transform: scaleX(-1); /* Mirror for right side */
+}
+
+/* GENNEX Text (smaller for nav) */
+.logo-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
+  position: relative;
+}
+
+/* Bottom gradient bar */
+.bottom-bar {
+  position: absolute;
+  bottom: -10px;
+  left: 10px;
+  width: 80px;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(to right, #0068ff, #42a0ff);
 }
 
 /* Social Icons */
 .social-icons {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .social-icons a {
-    text-decoration: none;
-    font-size: 18px;
-    color: white;
-    transition: transform 0.3s, color 0.3s;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .social-icons a:hover {
-    color: #00AEEF;
-    transform: scale(1.2);
+  color: #00AEEF;
+  transform: scale(1.2);
+}
+
+/* Centered Navigation Menu */
+.nav-menu {
+  display: flex;
+  gap: 40px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #00AEEF;
 }
 
 /* Hero Section */
 .hero-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: 140px auto;
-    padding: 50px;
-    position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 140px auto;
+  padding: 50px;
+  position: relative;
 }
 
 /* Hero Text */
 .hero-text {
-    flex: 1;
-    text-align: left;
+  flex: 1;
+  text-align: left;
 }
 
 .hero-text h1 {
-    font-size: 50px;
-    font-weight: bold;
-    margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
 }
 
-.hero-text .highlight {
-    background: linear-gradient(to right, #00AEEF, #9B67FF);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.highlight {
+  background: linear-gradient(to right, #00AEEF, #9B67FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-text h2 {
-    font-size: 26px;
-    color: white;
-    font-weight: 500;
+  font-size: 26px;
+  color: white;
+  font-weight: 500;
+  margin-top: 10px;
 }
 
 .hero-text p {
-    font-size: 18px;
-    color: #ddd;
-    margin-top: 15px;
-    line-height: 1.5;
+  font-size: 18px;
+  color: #ddd;
+  margin-top: 15px;
+  line-height: 1.5;
 }
 
 /* Download CV Button */
 .download-btn {
-    padding: 14px 28px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(to right, #00AEEF, #9B67FF);
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 25px;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3);
+  padding: 14px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, #00AEEF, #9B67FF);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 25px;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3);
 }
 
 .download-btn:hover {
-    background: linear-gradient(to right, #9B67FF, #00AEEF);
-    transform: scale(1.05);
+  background: linear-gradient(to right, #9B67FF, #00AEEF);
+  transform: scale(1.05);
 }
 
 /* Hero Image */
 .hero-image {
-    position: relative;
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: linear-gradient(to right, #00AEEF, #9B67FF);
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(to right, #00AEEF, #9B67FF);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-image img {
-    width: 270px;
-    height: 270px;
-    border-radius: 50%;
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
 }
 
 /* Decorative Circle Overlay */
 .circle-overlay {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    border: 2px solid rgba(0, 174, 239, 0.5);
-    top: 20px;
-    left: -40px;
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 174, 239, 0.5);
+  top: 20px;
+  left: -40px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px;
-    }
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
 
-    .nav-menu {
-        flex-direction: column;
-        gap: 10px;
-    }
+  .nav-left {
+    margin-bottom: 10px;
+  }
 
-    .hero-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
-    }
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-    .hero-image {
-        margin-top: 20px;
-    }
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
 }
