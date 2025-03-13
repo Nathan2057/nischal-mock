@@ -384,8 +384,8 @@ body {
 /* LEFT BOX: scaled to 60%, blurred, placed near center box */
 .box-left {
   left: 40px;           /* minimal gap from center */
-  transform: scale(0.6) translateZ(0);
-  filter: blur(2px);
+  transform: scale(0.88) translateZ(0);
+  filter: blur(3.5px);
   z-index: 1;
 }
 
@@ -399,8 +399,8 @@ body {
 /* RIGHT BOX: scaled to 60%, blurred, placed near center box */
 .box-right {
   left: 360px;          /* minimal gap from center */
-  transform: scale(0.6) translateZ(0);
-  filter: blur(2px);
+  transform: scale(0.88) translateZ(0);
+  filter: blur(3.5px);
   z-index: 1;
 }
 
