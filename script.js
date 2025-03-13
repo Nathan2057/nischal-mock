@@ -1,44 +1,60 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const prevBtn = document.querySelector('.slider button.prev');
-  const nextBtn = document.querySelector('.slider button.next');
-  const total = slides.length;
-  let currentIndex = 0;
+  // Example project data
+  const projects = [
+    { src: 'images/project1.jpg', title: 'Project One' },
+    { src: 'images/project2.jpg', title: 'Project Two' },
+    { src: 'images/project3.jpg', title: 'Project Three' },
+    { src: 'images/project4.jpg', title: 'Project Four' },
+    { src: 'images/project5.jpg', title: 'Project Five' }
+  ];
   
-  function updateSlides() {
-    slides.forEach((slide, i) => {
-      slide.classList.remove('active', 'left', 'right', 'hidden');
-      let offset = i - currentIndex;
-      
-      // Wrap-around adjustment for offsets:
-      if (offset < -Math.floor(total / 2)) {
-        offset += total;
-      }
-      if (offset > Math.floor(total / 2)) {
-        offset -= total;
-      }
-      
-      if (offset === 0) {
-        slide.classList.add('active');
-      } else if (offset === -1) {
-        slide.classList.add('left');
-      } else if (offset === 1) {
-        slide.classList.add('right');
-      } else {
-        slide.classList.add('hidden');
-      }
-    });
+  const leftBoxImg = document.querySelector('.box-left .box-img');
+  const leftBoxTitle = document.querySelector('.box-left .box-title');
+  const centerBoxImg = document.querySelector('.box-center .box-img');
+  const centerBoxTitle = document.querySelector('.box-center .box-title');
+  const rightBoxImg = document.querySelector('.box-right .box-img');
+  const rightBoxTitle = document.querySelector('.box-right .box-title');
+  
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  
+  let currentIndex = 0;
+  const total = projects.length;
+  
+  // Helper to wrap around index
+  function wrapIndex(i) {
+    return (i + total) % total;
   }
   
-  updateSlides();
+  // Update images/titles in each box
+  function updateBoxes() {
+    const leftIndex = wrapIndex(currentIndex - 1);
+    const rightIndex = wrapIndex(currentIndex + 1);
+    
+    // Left Box
+    leftBoxImg.src = projects[leftIndex].src;
+    leftBoxTitle.textContent = projects[leftIndex].title;
+    
+    // Center Box
+    centerBoxImg.src = projects[currentIndex].src;
+    centerBoxTitle.textContent = projects[currentIndex].title;
+    
+    // Right Box
+    rightBoxImg.src = projects[rightIndex].src;
+    rightBoxTitle.textContent = projects[rightIndex].title;
+  }
   
+  // Initial load
+  updateBoxes();
+  
+  // Button Listeners
   prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + total) % total;
-    updateSlides();
+    currentIndex = wrapIndex(currentIndex - 1);
+    updateBoxes();
   });
   
   nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % total;
-    updateSlides();
+    currentIndex = wrapIndex(currentIndex + 1);
+    updateBoxes();
   });
 });
