@@ -15,22 +15,79 @@ body {
 /* HEADER */
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem 40rem;
   background: transparent;
 }
 
-.logo h2 {
-  font-weight: 700;
-  font-size: 1.3rem;
+/* Container for the entire GenNex logo */
+.gennex-logo {
+  position: relative;
+  width: 260px;  /* Adjust width to your preference */
+  height: 180px; /* Adjust height as needed */
 }
+
+
+/* The angled ribbon (gradient) behind the text */
+.gennex-ribbon {
+  position: absolute;
+  top: 60px;
+  left: -130%;
+  transform: translateX(-50%);
+  width: 410px;
+  height: 50px;
+  /* Gradient from purple (#4f00ff) to cyan (#00c6ff) */
+  background: linear-gradient(to right, #4f00ff, #00c6ff);
+  /*
+    "Bow-tie" shape with angled ends:
+    0% 50%  -> left center
+    10% 0%  -> top-left corner
+    90% 0%  -> top-right corner
+    100% 50%-> right center
+    90% 100%-> bottom-right corner
+    10% 100%-> bottom-left corner
+  */
+  clip-path: polygon(
+    20% 50%, 
+    10% 0%, 
+    90% 0%, 
+    80% 50%, 
+    90% 100%, 
+    10% 100%
+  );
+}
+
+/* White text in the center of the ribbon */
+.gennex-text {
+  position: absolute;
+  top: 50px; /* Adjust to vertically center the text on the ribbon */
+  left: -130%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0.1rem; /* Spacing between letters */
+  text-transform: uppercase;
+}
+
+/* Elliptical gradient bar at the bottom */
+.gennex-bar {
+  position: absolute;
+  bottom: 43px;
+  left: -130%;
+  transform: translateX(-50%);
+  width: 330px;
+  height: 20px;
+  background: linear-gradient(to right, #4f00ff, #00c6ff);
+  border-radius: 1000px; /* Half the height => ellipse */
+}
+
 
 .nav-links a {
   color: #ffffff;
   text-decoration: none;
-  margin-left: 2rem;
-  font-weight: 500;
+  margin-left: 1rem;
+  font-weight: 1000;
   transition: color 0.3s ease;
 }
 
