@@ -1,263 +1,154 @@
-/* -------------------- General Styles -------------------- */
-body {
-  font-family: 'Poppins', sans-serif;
+/* RESET / BASIC STYLES */
+* {
   margin: 0;
   padding: 0;
-  background: #0A0F1E; /* Dark background */
-  color: white;
-  text-align: center;
+  box-sizing: border-box;
 }
 
-/* -------------------- Navigation Bar -------------------- */
-nav {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* Left: logo, Center: menu, Right: icons */
-  padding: 20px 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: transparent;
-  z-index: 1000;
-}
-
-/* Left: GENNEX Star Logo */
-.logo-container {
-  position: relative;
-  width: 140px;  /* Adjust as needed */
-  height: 70px;  /* Adjust as needed */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: visible;
-}
-
-/* Star shape behind GENNEX text */
-.star {
-  position: absolute;
-  width: 90px;
-  height: 90px;
-  top: -10px;
-  left: 25px;
-  background: radial-gradient(circle at 50% 40%, #3b74bd 40%, #182642 100%);
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
-  z-index: -1;
-}
-
-/* Ribbons */
-.ribbon {
-  position: absolute;
-  width: 70px;
-  height: 25px;
-  background: linear-gradient(to right, #0068ff, #42a0ff);
-  clip-path: polygon(
-    0% 50%,
-    20% 0%,
-    100% 0%,
-    80% 50%,
-    100% 100%,
-    20% 100%
-  );
-}
-
-.ribbon.left {
-  left: -45px;
-  top: 22px;
-}
-
-.ribbon.right {
-  right: -45px;
-  top: 22px;
-  transform: scaleX(-1); /* Mirror for the right side */
-}
-
-/* GENNEX Text */
-.logo-text {
-  font-family: "Orbitron", sans-serif;
-  font-size: 18px;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 2px;
-  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.5);
-  position: relative;
-}
-
-/* Bottom gradient bar */
-.bottom-bar {
-  position: absolute;
-  bottom: -12px;
-  left: 15px;
-  width: 90px;
-  height: 14px;
-  border-radius: 7px;
-  background: linear-gradient(to right, #0068ff, #42a0ff);
-}
-
-/* Center: Navigation Menu */
-.nav-menu {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-  color: #00AEEF;
-}
-
-/* Right: Social Icons */
-.social-icons {
-  display: flex;
-  gap: 15px;
-}
-
-.social-icons a {
-  text-decoration: none;
-  font-size: 18px;
-  color: white;
-  transition: transform 0.3s, color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #00AEEF;
-  transform: scale(1.2);
-}
-
-/* -------------------- Hero Section -------------------- */
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1000px;
-  margin: 140px auto; /* Enough space to clear the fixed nav */
-  padding: 50px;
-  position: relative;
-}
-
-/* Hero Text */
-.hero-text {
-  flex: 1;
-  text-align: left;
-}
-
-.hero-text h1 {
-  font-size: 50px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.highlight {
-  background: linear-gradient(to right, #00AEEF, #9B67FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-text h2 {
-  font-size: 26px;
-  color: white;
-  font-weight: 500;
-  margin-top: 10px;
-}
-
-.hero-text p {
-  font-size: 18px;
-  color: #ddd;
-  margin-top: 15px;
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f141e; /* Dark background */
+  color: #ffffff;
   line-height: 1.5;
 }
 
-/* Download CV Button */
-.download-btn {
-  padding: 14px 28px;
-  border: none;
-  border-radius: 30px;
-  background: linear-gradient(to right, #00AEEF, #9B67FF);
-  color: white;
-  font-weight: bold;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 25px;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 4px 10px rgba(0, 174, 239, 0.3);
-}
-
-.download-btn:hover {
-  background: linear-gradient(to right, #9B67FF, #00AEEF);
-  transform: scale(1.05);
-}
-
-/* Hero Image */
-.hero-image {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: linear-gradient(to right, #00AEEF, #9B67FF);
-  padding: 5px;
+/* HEADER */
+.header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 1rem 2rem;
+  background: transparent;
 }
 
-.hero-image img {
-  width: 270px;
-  height: 270px;
+.logo h2 {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 2rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #6cd4f3; /* Accent color on hover */
+}
+
+.social-icons a {
+  color: #ffffff;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #6cd4f3; /* Accent color on hover */
+}
+
+/* HERO SECTION */
+.hero {
+  display: flex;
+  flex-wrap: wrap; /* Stacks on smaller screens */
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden; /* For circles that might go out of bounds */
+}
+
+/* Left side: text content */
+.hero-content {
+  max-width: 600px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-content .accent {
+  color: #6cd4f3; /* Accent color */
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #cfcfcf;
+}
+
+.btn-cv {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #6cd4f3;
+  color: #0f141e;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cv:hover {
+  background-color: #57acc9;
+}
+
+/* Right side: image & circles */
+.hero-image-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-top: 2rem; /* Some spacing for smaller screens */
+}
+
+.profile-img {
+  position: relative;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  display: block;
+  margin: 0 auto; /* Center the image */
+  border: 3px solid #6cd4f3; /* Slight border matching accent color */
 }
 
-/* Decorative Circle Overlay */
-.circle-overlay {
+/* Decorative circles */
+.circle {
   position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.circle-1 {
   width: 220px;
   height: 220px;
-  border-radius: 50%;
-  border: 2px solid rgba(0, 174, 239, 0.5);
-  top: 20px;
-  left: -40px;
+  top: 40px;
+  left: 40px;
+  background: radial-gradient(circle at center, #6cd4f3 0%, rgba(108,212,243,0) 60%);
 }
 
-/* -------------------- Responsive Design -------------------- */
+.circle-2 {
+  width: 120px;
+  height: 120px;
+  bottom: 0;
+  right: 0;
+  background: radial-gradient(circle at center, #b157ff 0%, rgba(177,87,255,0) 60%);
+}
+
+/* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
-  nav {
+  .hero {
     flex-direction: column;
-    align-items: center;
-    padding: 15px;
+    align-items: flex-start;
   }
 
-  .logo-container {
-    margin-bottom: 10px;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-    padding: 30px;
-  }
-
-  .hero-image {
-    margin-top: 20px;
+  .hero-image-wrapper {
+    margin-top: 2rem;
+    margin-left: 0;
   }
 }
