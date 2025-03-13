@@ -435,14 +435,14 @@ body {
 
 /* Positioning for previous and next buttons */
 .nav-btn.prev {
-  left: -3rem;  /* Adjust if needed */
+  left: -3rem;  /* Adjust if needed to move further out or in */
 }
 
 .nav-btn.next {
-  right: -3rem; /* Adjust if needed */
+  right: -3rem; /* Adjust if needed to move further out or in */
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for nav buttons */
 @media (max-width: 768px) {
   .nav-btn img {
     width: 30px;
@@ -452,28 +452,28 @@ body {
   }
   .nav-btn.next {
     right: -2rem;
+  }
+} /* <-- This closing brace was missing */
  
-/* 3D Rolling Keyframes
-   We'll rotateY from 0 to ±90 deg for a roll effect,
-   then rotate new images from ±90 deg to 0. */
+/* 3D Rolling Keyframes */
 @keyframes rollOutLeft {
-  0%   { transform: scale(1) rotateY(0deg);   }
-  100% { transform: scale(1) rotateY(90deg);  }
+  0%   { transform: scale(1) rotateY(0deg); }
+  100% { transform: scale(1) rotateY(90deg); }
 }
 @keyframes rollInRight {
   0%   { transform: scale(1) rotateY(-90deg); }
-  100% { transform: scale(1) rotateY(0deg);   }
+  100% { transform: scale(1) rotateY(0deg); }
 }
 @keyframes rollOutRight {
-  0%   { transform: scale(1) rotateY(0deg);   }
+  0%   { transform: scale(1) rotateY(0deg); }
   100% { transform: scale(1) rotateY(-90deg); }
 }
 @keyframes rollInLeft {
-  0%   { transform: scale(1) rotateY(90deg);  }
-  100% { transform: scale(1) rotateY(0deg);   }
+  0%   { transform: scale(1) rotateY(90deg); }
+  100% { transform: scale(1) rotateY(0deg); }
 }
 
-/* We'll apply these classes dynamically in JS */
+/* Classes for applying the roll animations */
 .roll-out-left {
   animation: rollOutLeft 0.7s forwards ease;
 }
