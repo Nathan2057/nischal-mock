@@ -1,4 +1,4 @@
-/* General Styles */
+/* -------------------- General Styles -------------------- */
 body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
@@ -8,13 +8,13 @@ body {
   text-align: center;
 }
 
-/* Navigation Bar */
+/* -------------------- Navigation Bar -------------------- */
 nav {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 80px;
+  justify-content: space-between; /* Left: logo, Center: menu, Right: icons */
+  padding: 20px 40px;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,31 +22,24 @@ nav {
   z-index: 1000;
 }
 
-/* Left side: Gennex Star Logo + Social Icons */
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-/* GENNEX Star Logo (scaled down for nav) */
-.logo {
+/* Left: GENNEX Star Logo */
+.logo-container {
   position: relative;
-  width: 120px; /* Adjust as needed */
-  height: 60px; /* Adjust as needed */
+  width: 140px;  /* Adjust as needed */
+  height: 70px;  /* Adjust as needed */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: visible;
 }
 
-/* Star shape */
+/* Star shape behind GENNEX text */
 .star {
   position: absolute;
-  width: 80px;
-  height: 80px;
-  top: -10px;  /* Adjust position */
-  left: 20px;  /* Center horizontally */
+  width: 90px;
+  height: 90px;
+  top: -10px;
+  left: 25px;
   background: radial-gradient(circle at 50% 40%, #3b74bd 40%, #182642 100%);
   clip-path: polygon(
     50% 0%,
@@ -66,8 +59,8 @@ nav {
 /* Ribbons */
 .ribbon {
   position: absolute;
-  width: 60px;
-  height: 20px;
+  width: 70px;
+  height: 25px;
   background: linear-gradient(to right, #0068ff, #42a0ff);
   clip-path: polygon(
     0% 50%,
@@ -80,17 +73,17 @@ nav {
 }
 
 .ribbon.left {
-  left: -40px;
-  top: 20px;
+  left: -45px;
+  top: 22px;
 }
 
 .ribbon.right {
-  right: -40px;
-  top: 20px;
-  transform: scaleX(-1); /* Mirror for right side */
+  right: -45px;
+  top: 22px;
+  transform: scaleX(-1); /* Mirror for the right side */
 }
 
-/* GENNEX Text (smaller for nav) */
+/* GENNEX Text */
 .logo-text {
   font-family: "Orbitron", sans-serif;
   font-size: 18px;
@@ -104,15 +97,32 @@ nav {
 /* Bottom gradient bar */
 .bottom-bar {
   position: absolute;
-  bottom: -10px;
-  left: 10px;
-  width: 80px;
-  height: 12px;
-  border-radius: 6px;
+  bottom: -12px;
+  left: 15px;
+  width: 90px;
+  height: 14px;
+  border-radius: 7px;
   background: linear-gradient(to right, #0068ff, #42a0ff);
 }
 
-/* Social Icons */
+/* Center: Navigation Menu */
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #00AEEF;
+}
+
+/* Right: Social Icons */
 .social-icons {
   display: flex;
   gap: 15px;
@@ -130,30 +140,13 @@ nav {
   transform: scale(1.2);
 }
 
-/* Centered Navigation Menu */
-.nav-menu {
-  display: flex;
-  gap: 40px;
-}
-
-.nav-menu a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-  color: #00AEEF;
-}
-
-/* Hero Section */
+/* -------------------- Hero Section -------------------- */
 .hero-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 1000px;
-  margin: 140px auto;
+  margin: 140px auto; /* Enough space to clear the fixed nav */
   padding: 50px;
   position: relative;
 }
@@ -241,7 +234,7 @@ nav {
   left: -40px;
 }
 
-/* Responsive Design */
+/* -------------------- Responsive Design -------------------- */
 @media (max-width: 768px) {
   nav {
     flex-direction: column;
@@ -249,7 +242,7 @@ nav {
     padding: 15px;
   }
 
-  .nav-left {
+  .logo-container {
     margin-bottom: 10px;
   }
 
