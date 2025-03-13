@@ -14,10 +14,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
         integrity="sha512-Fo3rlrZj/k7ujTnH2N2ZAtzY2cI/tU2nWv7nEz0S4yfP5ZfnZ2v9sz4OBt6S2lCWexGtXoP5ZLTx2k5E5avzJQ==" 
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- External CSS -->
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
 
@@ -26,7 +27,7 @@
     <!-- Logo container fixed at top left -->
     <div class="header__logo">
       <div class="gennex-logo">
-        <!-- Angled ribbon behind the text -->
+        <!-- Angled ribbons -->
         <div class="gennex-ribbon"></div>
         <div class="gennex-ribbon2"></div>
         <!-- White text in the center -->
@@ -47,28 +48,21 @@
 
   <!-- Hero Section -->
   <section class="hero">
-      <div class="hero-content">
-    <!-- Fade-in heading -->
-    <h1 class="fade-in-heading">
-      Hello, I’m <span class="accent">Nischal</span>, frontend developer
-    </h1>
-    <!-- Fade-in paragraph -->
-    <p class="fade-in-paragraph">
-      Former digital-marketing specialist, seeking to apply competent 
-      development skills with a focus on collaboration, communication, 
-      and passion.
-    </p>
-    <a href="#" class="btn-cv" download>Download CV</a>
-  </div>
+    <div class="hero-content">
+      <!-- Fade-in heading -->
+      <h1 class="fade-in-heading">
+        Hello, I’m <span class="accent">Nischal</span>, frontend developer
+      </h1>
+      <!-- Fade-in paragraph -->
+      <p class="fade-in-paragraph">
+        Former digital-marketing specialist, seeking to apply competent 
+        development skills with a focus on collaboration, communication, 
+        and passion.
+      </p>
+      <a href="#" class="btn-cv" download>Download CV</a>
+    </div>
 
-  <div class="hero-image-wrapper">
-    <!-- Circles & profile image here -->
-  </div>
-
-  <div class="hero-image-wrapper">
-    <!-- ... circles and profile image here ... -->
-  </div>
-    <!-- Decorative circles & profile image container -->
+    <!-- Hero image wrapper with circles & profile -->
     <div class="hero-image-wrapper">
       <div class="circle circle-1"></div>
       <div class="circle circle-2"></div>
@@ -89,5 +83,37 @@
       </a>
     </div>
   </section>
+
+  <!-- Project Slider Section -->
+  <section class="project-slider">
+    <h2>My Projects</h2>
+    <div class="slider">
+      <div class="slides">
+        <div class="slide">
+          <img src="https://via.placeholder.com/800x400/6cd4f3/0f141e?text=Project+1" alt="Project 1">
+          <div class="slide-title">Project One</div>
+        </div>
+        <div class="slide">
+          <img src="https://via.placeholder.com/800x400/6cd4f3/0f141e?text=Project+2" alt="Project 2">
+          <div class="slide-title">Project Two</div>
+        </div>
+        <div class="slide">
+          <img src="https://via.placeholder.com/800x400/6cd4f3/0f141e?text=Project+3" alt="Project 3">
+          <div class="slide-title">Project Three</div>
+        </div>
+        <div class="slide">
+          <img src="https://via.placeholder.com/800x400/6cd4f3/0f141e?text=Project+4" alt="Project 4">
+          <div class="slide-title">Project Four</div>
+        </div>
+        <div class="slide">
+          <img src="https://via.placeholder.com/800x400/6cd4f3/0f141e?text=Project+5" alt="Project 5">
+          <div class="slide-title">Project Five</div>
+        </div>
+      </div>
+      <button class="prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
 </body>
 </html>
