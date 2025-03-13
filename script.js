@@ -1,22 +1,34 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const slidesContainer = document.querySelector('.slides');
-  const slides = document.querySelectorAll('.slide');
-  const prevButton = document.querySelector('.slider button.prev');
-  const nextButton = document.querySelector('.slider button.next');
-  const totalSlides = slides.length;
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const prevBtn = document.querySelector('.slider button.prev');
+  const nextBtn = document.querySelector('.slider button.next');
   let currentIndex = 0;
+  const total = slides.length;
   
-  function updateSlider() {
-    slidesContainer.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+  function updateSlides() {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active', 'prev', 'next', 'hidden');
+      if (i === currentIndex) {
+        slide.classList.add('active');
+      } else if (i === (currentIndex - 1 + total) % total) {
+        slide.classList.add('prev');
+      } else if (i === (currentIndex + 1) % total) {
+        slide.classList.add('next');
+      } else {
+        slide.classList.add('hidden');
+      }
+    });
   }
   
-  prevButton.addEventListener('click', function() {
-    currentIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1;
-    updateSlider();
+  updateSlides();
+  
+  prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateSlides();
   });
   
-  nextButton.addEventListener('click', function() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    updateSlider();
+  nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % total;
+    updateSlides();
   });
 });
