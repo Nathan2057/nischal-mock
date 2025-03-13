@@ -15,7 +15,7 @@ body {
 .header {
   position: relative; /* Ensure positioning for the pseudo-element */
   width: 100%;
-  height: 100px;
+  height: 120px;
   background: #0f141e;
   display: flex;
   align-items: center;
@@ -54,7 +54,7 @@ body {
 /* Navigation styles */
 .header__nav ul {
   display: flex;
-  gap: 2rem;
+  gap: 10rem;
   list-style: none;
 }
 
@@ -79,17 +79,73 @@ body {
 .gennex-ribbon {
   position: absolute;
   top: 20px;
+  left: 19px;
+  width: 60px;
+  height: 40px;
+  background: radial-gradient(circle at center, #4f00ff 0%, #00c6ff 100%);
+  clip-path: polygon(40% 50%, 10% 0%, 90% 0%, 60% 50%, 90% 100%, 10% 100%);
+  z-index: 1;
+}
+
+/* Pseudo-element to simulate a glowing, fading effect */
+.gennex-ribbon1::after {
+  content: "";
+  position: absolute;
+  top: 0;
   left: 0;
   width: 250px;
   height: 40px;
-  background: linear-gradient(to right, #4f00ff, #00c6ff);
-  clip-path: polygon(25% 50%, 10% 0%, 90% 0%, 75% 50%, 90% 100%, 10% 100%);
+  background: radial-gradient(circle at bottom, #add8e6, #00008b);
+  clip-path: polygonpolygon(40% 50%, 10% 0%, 90% 0%, 60% 50%, 90% 100%, 10% 100%);
+  filter: blur(8px);
+  opacity: 0.3; /* Initial glow intensity */
+  z-index: -1;
+  animation: fadeGlow 2s infinite ease-in-out;
+}
+
+@keyframes fadeGlow {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
+}
+
+.gennex-ribbon2 {
+  position: absolute;
+  top: 20px;
+  left: 170px;
+  width: 60px;
+  height: 40px;
+  background: radial-gradient(circle at center, #4f00ff 0%, #00c6ff 100%);
+  clip-path: polygon(40% 50%, 10% 0%, 90% 0%, 60% 50%, 90% 100%, 10% 100%);
+ z-index: 1;
+}
+
+/* Pseudo-element to simulate a glowing, fading effect */
+.gennex-ribbon2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 40px;
+  background: radial-gradient(circle at bottom, #add8e6, #00008b);
+  clip-path: polygonpolygon(40% 50%, 10% 0%, 90% 0%, 60% 50%, 90% 100%, 10% 100%);
+  filter: blur(8px);
+  opacity: 0.3; /* Initial glow intensity */
+  z-index: -1;
+  animation: fadeGlow 2s infinite ease-in-out;
+}
+
+@keyframes fadeGlow {
+  0% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.3; }
 }
 
 .gennex-text {
   position: absolute;
   top: 26.5px;
-  left: 85.5%;
+  left: 83.5%;
   transform: translateX(-50%);
   color: #fff;
   font-size: 1.3rem;
@@ -105,8 +161,10 @@ body {
   transform: translateX(-50%);
   width: 200px;
   height: 10px;
-  background: linear-gradient(to right, #4f00ff, #00c6ff);
+  background: radial-gradient(circle at bottom, #add8e6 5%, #00008b 100%);
   border-radius: 5px;
+  box-shadow: 0 0 0px #6cd4f3, 0 0 1px #6cd4f3, 0 0 0px #6cd4f3;
+  z-index 1;
 }
 
 /* HERO SECTION */
@@ -148,19 +206,29 @@ body {
   color: #cfcfcf;
 }
 
-/* Blinking cursor for typewriter effect */
-#typed-heading::after,
-#typed-paragraph::after {
-  animation: blink 0.7s infinite;
-  margin-left: 3px;
-  color: #6cd4f3; /* Matches accent color */
+/* Fade-in for the heading */
+.fade-in-heading {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards; /* 1.2s duration, no delay */
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+/* Fade-in for the paragraph (with a delay) */
+.fade-in-paragraph {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards 0.8s; /* 0.8s delay */
 }
 
+/* Keyframes for the fadeIn animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* Slight upward movement */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .btn-cv {
   display: inline-block;
