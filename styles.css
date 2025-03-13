@@ -320,109 +320,95 @@ body {
   transform: scale(1.1);
 }
 
-/* PROJECT SLIDER CONTAINER */
-.project-slider {
+/* Overall Section */
+.three-box-slider {
+  background: #add8e6; /* Light blue background */
   padding: 2rem 1rem;
-  background: #add8e6;  /* Light blue background */
   text-align: center;
   color: #000;
+  position: relative;
 }
 
-.project-slider h2 {
+.three-box-slider h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
 
-/* SLIDER CONTAINER */
-.slider {
+/* Slider Container: fixed width, hides part of left/right boxes */
+.slider-container {
   position: relative;
-  max-width: 900px;
+  width: 900px;   /* Adjust as needed */
+  height: 400px;  /* Enough height for images */
   margin: 0 auto;
-  /* No overflow here – we use the wrapper below */
-  perspective: 1200px; /* Enables 3D transforms if needed */
+  overflow: hidden; /* Hide half of left & right boxes */
 }
 
-/* NEW: SLIDER WRAPPER */
-.slider-wrapper {
+/* Each Box: same size, fixed position inside container */
+.box {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  background: #fff;
+  text-align: center;
+  transition: opacity 0.3s ease;
   overflow: hidden;
 }
 
-/* SLIDES WRAPPER */
-.slides {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.5s ease;
-  transform-style: preserve-3d;
-}
-
-/* EACH SLIDE */
-.slide {
-  flex: 0 0 60%;       /* Active slide takes ~60% width */
-  margin: 0 2%;
-  position: relative;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0;          /* Start hidden; will be updated via JS */
-}
-
-.slide img {
+/* Box Image */
+.box-img {
   width: 100%;
-  border-radius: 10px;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
 
-/* TITLE OVERLAY ON SLIDES */
-.slide-title {
+/* Title inside each box */
+.box-title {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  font-size: 1.2rem;
+  bottom: 10px;
+  left: 10px;
+  padding: 0.3rem 0.5rem;
   background: rgba(255,255,255,0.7);
-  padding: 0.5rem;
   border-radius: 5px;
   color: #000;
+  font-size: 1rem;
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-/* ACTIVE SLIDE (center) */
-.slide.active {
+/* Left Box: half out of the container on the left */
+.box-left {
+  left: -200px; /* 200px out, 200px in */
+  top: 0;
+  filter: blur(3px) brightness(0.9);
+  opacity: 0.7;
+}
+
+/* Center Box: fully visible in the middle */
+.box-center {
+  left: 250px; /* Enough so it's fully in view (900 - 400 = 500 leftover) */
+  top: 0;
   opacity: 1;
-  transform: translateX(0) scale(1) rotateY(0deg);
-  z-index: 2;
+  filter: none;
 }
 
-/* IMMEDIATE LEFT NEIGHBOR */
-.slide.left {
-  opacity: 0.5;
-  transform: translateX(-60%) scale(0.8) rotateY(15deg);
-  filter: blur(2px);
-  z-index: 1;
+/* Right Box: half out of the container on the right */
+.box-right {
+  left: 600px; /* 300px in, 100px out (since container is 900 wide) */
+  top: 0;
+  filter: blur(3px) brightness(0.9);
+  opacity: 0.7;
 }
 
-/* IMMEDIATE RIGHT NEIGHBOR */
-.slide.right {
-  opacity: 0.5;
-  transform: translateX(60%) scale(0.8) rotateY(-15deg);
-  filter: blur(2px);
-  z-index: 1;
-}
-
-/* HIDDEN SLIDES */
-.slide.hidden {
-  opacity: 0;
-  transform: translateX(0) scale(0.7);
-}
-
-/* ARROW BUTTONS */
-.slider button.prev,
-.slider button.next {
+/* Navigation Buttons */
+.slider-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(255,255,255,0.8);
   border: none;
   color: #000;
-  font-size: 2.5rem;
+  font-size: 2rem;
   padding: 0.8rem;
   cursor: pointer;
   border-radius: 50%;
@@ -430,29 +416,36 @@ body {
   transition: background 0.3s ease;
 }
 
-.slider button.prev:hover,
-.slider button.next:hover {
+.slider-btn:hover {
   background: rgba(255,255,255,1);
 }
 
-.slider button.prev {
-  left: -3rem;
+.prev {
+  left: 0;
 }
 
-.slider button.next {
-  right: -3rem;
+.next {
+  right: 0;
 }
 
-/* RESPONSIVE ADJUSTMENTS */
+/* Adjust for smaller screens */
 @media (max-width: 768px) {
-  .slide {
-    flex: 0 0 80%;
+  .slider-container {
+    width: 90%;
+    max-width: 600px;
+    height: 300px;
   }
-  .slider button.prev,
-  .slider button.next {
-    font-size: 2rem;
-    padding: 0.6rem;
-    left: -2rem;
-    right: -2rem;
+  .box {
+    width: 250px;
+    height: 300px;
+  }
+  .box-left {
+    left: -125px;
+  }
+  .box-center {
+    left: 175px;
+  }
+  .box-right {
+    left: 400px;
   }
 }
