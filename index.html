@@ -17,6 +17,7 @@
   <!-- External CSS -->
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
 
@@ -46,15 +47,23 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Hello, I’m <span class="accent">Nischal</span>,<br> frontend developer</h1>
-      <p>
-        Former digital-marketing specialist, seeking to apply competent 
-        development skills with a focus on collaboration, communication, 
-        and passion.
-      </p>
-      <a href="#" class="btn-cv" download>Download CV</a>
-    </div>
+    <!-- Typed heading -->
+    <h1>
+      Hello, I’m <span class="accent" id="typed-heading"></span>
+    </h1>
+    <!-- Typed paragraph -->
+    <p id="typed-paragraph"></p>
 
+    <a href="#" class="btn-cv" download>Download CV</a>
+  </div>
+
+  <div class="hero-image-wrapper">
+    <!-- Circles & profile image here -->
+  </div>
+
+  <div class="hero-image-wrapper">
+    <!-- ... circles and profile image here ... -->
+  </div>
     <!-- Decorative circles & profile image container -->
     <div class="hero-image-wrapper">
       <div class="circle circle-1"></div>
@@ -76,6 +85,25 @@
       </a>
     </div>
   </section>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Typewriter for heading
+    new Typed('#typed-heading', {
+      strings: ["Nischal, frontend developer"],
+      typeSpeed: 50,
+      showCursor: false  // We'll add a custom CSS cursor
+    });
 
+    // Typewriter for paragraph
+    new Typed('#typed-paragraph', {
+      strings: [
+        "Former digital-marketing specialist, seeking to apply competent development skills with a focus on collaboration, communication, and passion."
+      ],
+      typeSpeed: 40,
+      startDelay: 2000,  // Delay after heading completes
+      showCursor: false  // We'll add a custom CSS cursor
+    });
+  });
+</script>
 </body>
 </html>
