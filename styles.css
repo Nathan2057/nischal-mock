@@ -91,21 +91,21 @@ body {
 /* HERO SECTION */
 .hero {
   /* Center the hero within a max width and keep it side by side */
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   
   display: flex;
   align-items: center;
   justify-content: space-between; /* Places text on left, image on right */
   
-  padding: 9rem 9rem;
+  padding: 9rem 20rem;
   position: relative;
   overflow: hidden;
 }
 
 /* Left side: text content */
 .hero-content {
-  max-width: 600px;
+  max-width: 900px;
 }
 
 .hero-content h1 {
@@ -179,7 +179,7 @@ body {
 /* Decorative circles */
 .circle {
   position: absolute;
-  border-radius: 50%;
+  border-radius: 80%;
   z-index: 1;
 }
 
