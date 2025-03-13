@@ -341,7 +341,6 @@ body {
   margin: 0 auto;
   perspective: 1200px;  /* For any 3D transforms if needed */
   overflow: visible;    /* Allow buttons outside the container to show */
-  background: #daf0ff;  /* Demo background */
 }
 
 /* Each Box: absolutely placed. We'll keep them close together. */
