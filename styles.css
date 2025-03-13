@@ -88,7 +88,7 @@ body {
 }
 
 /* Pseudo-element to simulate a glowing, fading effect */
-.gennex-ribbon1::after {
+.gennex-ribbon::after {
   content: "";
   position: absolute;
   top: 0;
