@@ -98,36 +98,33 @@
     </div>
   </section>
 
- <section class="project-slider">
+ <section class="three-box-slider">
   <h2>My Projects</h2>
-  <div class="slider">
-    <!-- New wrapper to constrain the moving slides -->
-    <div class="slider-wrapper">
-      <div class="slides">
-        <div class="slide active">
-          <img src="images/project1.png" alt="Project 1">
-          <div class="slide-title">Project One</div>
-        </div>
-        <div class="slide">
-          <img src="images/project2.png" alt="Project 2">
-          <div class="slide-title">Project Two</div>
-        </div>
-        <div class="slide">
-          <img src="images/project3.png" alt="Project 3">
-          <div class="slide-title">Project Three</div>
-        </div>
-        <div class="slide">
-          <img src="images/project4.png" alt="Project 4">
-          <div class="slide-title">Project Four</div>
-        </div>
-        <div class="slide">
-          <img src="images/project5.png" alt="Project 5">
-          <div class="slide-title">Project Five</div>
-        </div>
-      </div>
+
+  <!-- Container that holds the 3 fixed boxes -->
+  <div class="slider-container">
+
+    <!-- Left Box (partially visible, blurred) -->
+    <div class="box box-left">
+      <img src="" alt="Left Project" class="box-img" />
+      <div class="box-title"></div>
     </div>
-    <button class="prev"><i class="fas fa-chevron-left"></i></button>
-    <button class="next"><i class="fas fa-chevron-right"></i></button>
+
+    <!-- Center Box (main slide) -->
+    <div class="box box-center">
+      <img src="" alt="Center Project" class="box-img" />
+      <div class="box-title"></div>
+    </div>
+
+    <!-- Right Box (partially visible, blurred) -->
+    <div class="box box-right">
+      <img src="" alt="Right Project" class="box-img" />
+      <div class="box-title"></div>
+    </div>
+    
+    <!-- Navigation Buttons -->
+    <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+    <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
   </div>
 </section>
 
