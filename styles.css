@@ -338,7 +338,8 @@ body {
   position: relative;
   max-width: 900px;
   margin: 0 auto;
-  overflow: visible;  /* Allow adjacent slides to show */
+  overflow: visible;  /* Allow adjacent slides to be partially visible */
+  perspective: 1200px; /* Enable 3D transforms */
 }
 
 /* SLIDES WRAPPER */
@@ -346,64 +347,76 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
 }
 
-/* EACH SLIDE */
+/* BASE SLIDE STYLING */
 .slide {
-  flex: 0 0 60%;      /* Active slide takes 60% width */
+  flex: 0 0 60%;      /* Active slide takes ~60% of slider width */
   margin: 0 2%;
   position: relative;
   transition: transform 0.5s ease, opacity 0.5s ease;
-  opacity: 0.5;
 }
 
+/* Ensure images fit their container */
 .slide img {
   width: 100%;
   border-radius: 10px;
+  display: block;
 }
 
-/* Title overlay on slides */
+/* Slide Title Overlay */
 .slide-title {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 20px;
+  left: 20px;
   font-size: 1.2rem;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 0.3rem 0.8rem;
+  background: rgba(255,255,255,0.7);
+  padding: 0.5rem 1rem;
   border-radius: 5px;
   color: #000;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-/* Active slide */
+/* ACTIVE SLIDE (center) */
 .slide.active {
   opacity: 1;
-  transform: scale(1);
+  transform: translateX(0) scale(1) rotateY(0deg);
   z-index: 2;
 }
 
-/* Immediate neighbors: previous and next */
-.slide.prev,
-.slide.next {
+/* LEFT NEIGHBOR: half visible on left */
+.slide.left {
   opacity: 0.5;
-  transform: scale(0.8);
+  /* Shift left so that roughly half is visible on the left side */
+  transform: translateX(-60%) scale(0.8) rotateY(15deg);
   filter: blur(2px);
   z-index: 1;
 }
 
-/* Hidden slides (all others) */
-.slide.hidden {
-  opacity: 0;
-  transform: scale(0.5);
+/* RIGHT NEIGHBOR: half visible on right */
+.slide.right {
+  opacity: 0.5;
+  /* Shift right so that roughly half is visible on the right side */
+  transform: translateX(60%) scale(0.8) rotateY(-15deg);
+  filter: blur(2px);
+  z-index: 1;
 }
 
-/* Arrow buttons */
+/* HIDE ALL OTHER SLIDES */
+.slide.hidden {
+  opacity: 0;
+  transform: translateX(0) scale(0.7);
+}
+
+/* ARROW BUTTONS */
 .slider button.prev,
 .slider button.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255,255,255,0.8);
   border: none;
   color: #000;
   font-size: 2.5rem;
@@ -416,21 +429,22 @@ body {
 
 .slider button.prev:hover,
 .slider button.next:hover {
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255,255,255,1);
 }
 
+/* Position buttons so they are fully visible */
 .slider button.prev {
-  left: -3rem;  /* Position outside slider container */
+  left: -3rem;
 }
 
 .slider button.next {
   right: -3rem;
 }
 
-/* Responsive adjustments */
+/* RESPONSIVE ADJUSTMENTS */
 @media (max-width: 768px) {
   .slide {
-    flex: 0 0 80%;  /* Increase slide width on small screens */
+    flex: 0 0 80%;
   }
   .slider button.prev,
   .slider button.next {
