@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GenNex Logo</title>
+  <title>Nischal Trital</title>
   <!-- Google Font: Orbitron -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +28,7 @@
       <div class="gennex-logo">
         <!-- Angled ribbon behind the text -->
         <div class="gennex-ribbon"></div>
+        <div class="gennex-ribbon2"></div>
         <!-- White text in the center -->
         <div class="gennex-text">GENNEX</div>
         <!-- Elliptical bar at the bottom -->
@@ -46,14 +47,17 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-    <!-- Typed heading -->
-    <h1>
-      Hello, I’m <span class="accent" id="typed-heading"></span>
+      <div class="hero-content">
+    <!-- Fade-in heading -->
+    <h1 class="fade-in-heading">
+      Hello, I’m <span class="accent">Nischal</span>, frontend developer
     </h1>
-    <!-- Typed paragraph -->
-    <p id="typed-paragraph"></p>
-
+    <!-- Fade-in paragraph -->
+    <p class="fade-in-paragraph">
+      Former digital-marketing specialist, seeking to apply competent 
+      development skills with a focus on collaboration, communication, 
+      and passion.
+    </p>
     <a href="#" class="btn-cv" download>Download CV</a>
   </div>
 
@@ -85,25 +89,5 @@
       </a>
     </div>
   </section>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Typewriter for heading
-    new Typed('#typed-heading', {
-      strings: ["Nischal, frontend developer"],
-      typeSpeed: 50,
-      showCursor: false  // We'll add a custom CSS cursor
-    });
-
-    // Typewriter for paragraph
-    new Typed('#typed-paragraph', {
-      strings: [
-        "Former digital-marketing specialist, seeking to apply competent development skills with a focus on collaboration, communication, and passion."
-      ],
-      typeSpeed: 40,
-      startDelay: 2000,  // Delay after heading completes
-      showCursor: false  // We'll add a custom CSS cursor
-    });
-  });
-</script>
 </body>
 </html>
