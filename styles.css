@@ -321,44 +321,46 @@ body {
 }
 
 /* Overall Section */
-.three-box-slider {
+.roll-slider {
   background: #add8e6; /* Light blue background */
   padding: 2rem 1rem;
   text-align: center;
   color: #000;
-  position: relative;
 }
 
-.three-box-slider h2 {
+.roll-slider h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
 }
 
-/* Slider Container: 900x400, hides half of left/right boxes */
+/* Slider Container */
 .slider-container {
   position: relative;
-  width: 900px;
-  height: 400px;
+  width: 700px;   /* Adjust as needed */
+  height: 400px;  /* Enough for images */
   margin: 0 auto;
-  overflow: hidden; /* so half of left/right boxes are hidden */
+  perspective: 1200px; /* Enables 3D transforms */
+  overflow: hidden;     /* Just in case, but fully visible anyway */
 }
 
-/* Each Box: absolutely positioned in container */
+/* Each Box: absolutely placed. We'll keep them close together. */
 .box {
   position: absolute;
-  width: 300px; /* Center box is 300px wide */
+  width: 300px;  /* The "full scale" box width */
   height: 400px;
+  top: 0;
   border-radius: 10px;
   background: #fff;
-  text-align: center;
   overflow: hidden;
-  transition: opacity 0.3s ease;
-  /* For fade-out/in animation triggered via JS */
-  animation-duration: 0.7s;
-  animation-fill-mode: forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease; /* For the 3D roll animation */
 }
 
-/* The image inside each box */
+/* Box Image */
 .box-img {
   width: 100%;
   height: 100%;
@@ -366,60 +368,44 @@ body {
   display: block;
 }
 
-/* Title inside each box */
+/* Box Title */
 .box-title {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  padding: 0.3rem 0.5rem;
   background: rgba(255,255,255,0.7);
+  padding: 0.3rem 0.5rem;
   border-radius: 5px;
   color: #000;
   font-size: 1rem;
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-/* Left Box (scaled down to 75%, half out on left) */
+/* LEFT BOX: scaled to 60%, blurred, placed near center box */
 .box-left {
-  left: -150px; /* half out, half in */
-  top: 0;
-  transform: scale(0.75); /* 25% smaller */
-  filter: brightness(0.9);
-  opacity: 0.9;
+  left: 40px;           /* minimal gap from center */
+  transform: scale(0.6) translateZ(0);
+  filter: blur(2px);
+  z-index: 1;
 }
 
-/* Center Box (full size) */
+/* CENTER BOX: full scale, in the middle */
 .box-center {
-  left: 300px; /* fully in container (x=300..600) */
-  top: 0;
-  transform: scale(1);
+  left: 200px;          /* center-ish, so minimal gap from left & right */
+  transform: scale(1) translateZ(0);
+  z-index: 2;
 }
 
-/* Right Box (scaled down 75%, half out on right) */
+/* RIGHT BOX: scaled to 60%, blurred, placed near center box */
 .box-right {
-  left: 750px; /* half out from 750..1050 while container ends at 900 */
-  top: 0;
-  transform: scale(0.75);
-  filter: brightness(0.9);
-  opacity: 0.9;
+  left: 360px;          /* minimal gap from center */
+  transform: scale(0.6) translateZ(0);
+  filter: blur(2px);
+  z-index: 1;
 }
 
-/* Gradient fade overlay for left & right boxes */
-.fade-overlay {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none; /* so it doesn't block clicks */
-}
-.fade-left {
-  background: linear-gradient(to right, #add8e6 0%, rgba(173,216,230,0) 50%);
-}
-.fade-right {
-  background: linear-gradient(to left, #add8e6 0%, rgba(173,216,230,0) 50%);
-}
-
-/* Navigation Buttons */
-.slider-btn {
+/* Nav Buttons */
+.nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -434,7 +420,7 @@ body {
   transition: background 0.3s ease;
 }
 
-.slider-btn:hover {
+.nav-btn:hover {
   background: rgba(255,255,255,1);
 }
 
@@ -446,24 +432,45 @@ body {
   right: 0;
 }
 
-/* Fade-out/in Keyframes (cool transition) */
-@keyframes fadeOutIn {
-  0%   { opacity: 1; }
-  40%  { opacity: 0; }
-  60%  { opacity: 0; }
-  100% { opacity: 1; }
+/* 3D Rolling Keyframes
+   We'll rotateY from 0 to ±90 deg for a roll effect,
+   then rotate new images from ±90 deg to 0. */
+@keyframes rollOutLeft {
+  0%   { transform: scale(1) rotateY(0deg);   }
+  100% { transform: scale(1) rotateY(90deg);  }
+}
+@keyframes rollInRight {
+  0%   { transform: scale(1) rotateY(-90deg); }
+  100% { transform: scale(1) rotateY(0deg);   }
+}
+@keyframes rollOutRight {
+  0%   { transform: scale(1) rotateY(0deg);   }
+  100% { transform: scale(1) rotateY(-90deg); }
+}
+@keyframes rollInLeft {
+  0%   { transform: scale(1) rotateY(90deg);  }
+  100% { transform: scale(1) rotateY(0deg);   }
 }
 
-/* Class triggered by JS to animate fade */
-.fade-change {
-  animation: fadeOutIn 0.7s ease;
+/* We'll apply these classes dynamically in JS */
+.roll-out-left {
+  animation: rollOutLeft 0.7s forwards ease;
+}
+.roll-in-right {
+  animation: rollInRight 0.7s forwards ease;
+}
+.roll-out-right {
+  animation: rollOutRight 0.7s forwards ease;
+}
+.roll-in-left {
+  animation: rollInLeft 0.7s forwards ease;
 }
 
-/* Adjust for smaller screens */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .slider-container {
     width: 90%;
-    max-width: 600px;
+    max-width: 500px;
     height: 300px;
   }
   .box {
@@ -471,12 +478,13 @@ body {
     height: 300px;
   }
   .box-left {
-    left: -100px;
+    left: 30px;
   }
   .box-center {
-    left: 200px;
+    left: 140px;
   }
   .box-right {
-    left: 500px;
+    left: 250px;
   }
 }
+
