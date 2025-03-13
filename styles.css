@@ -404,34 +404,55 @@ body {
   z-index: 1;
 }
 
-/* Nav Buttons */
+/* Navigation Button Base */
 .nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255,255,255,0.8);
+  background: transparent; /* No background, use only image */
   border: none;
-  color: #000;
-  font-size: 2rem;
-  padding: 0.8rem;
   cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
-  transition: background 0.3s ease;
+  z-index: 15;
+  padding: 0;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
+/* Style the arrow images */
+.nav-btn img {
+  width: 40px;        /* Adjust size as needed */
+  height: auto;
+  display: block;
+  /* Neon glow effect using drop-shadow */
+  filter: drop-shadow(0 0 8px #6cd4f3) drop-shadow(0 0 16px #6cd4f3);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effects: scale up and slight rotation */
 .nav-btn:hover {
-  background: rgba(255,255,255,1);
+  transform: translateY(-50%) scale(1.1) rotate(5deg);
+  filter: drop-shadow(0 0 16px #6cd4f3) drop-shadow(0 0 32px #6cd4f3);
 }
 
-.prev {
-  left: 0;
+/* Positioning for previous and next buttons */
+.nav-btn.prev {
+  left: -3rem;  /* Adjust if needed */
 }
 
-.next {
-  right: 0;
+.nav-btn.next {
+  right: -3rem; /* Adjust if needed */
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .nav-btn img {
+    width: 30px;
+  }
+  .nav-btn.prev {
+    left: -2rem;
+  }
+  .nav-btn.next {
+    right: -2rem;
+ 
 /* 3D Rolling Keyframes
    We'll rotateY from 0 to ±90 deg for a roll effect,
    then rotate new images from ±90 deg to 0. */
