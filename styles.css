@@ -334,28 +334,28 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Slider Container: fixed width, hides part of left/right boxes */
+/* Slider Container: 900x400, hides half of left/right boxes */
 .slider-container {
   position: relative;
-  width: 900px;   /* Adjust as needed */
-  height: 400px;  /* Enough height for images */
+  width: 900px;
+  height: 400px;
   margin: 0 auto;
-  overflow: hidden; /* Hide half of left & right boxes */
+  overflow: hidden; /* So half of left/right boxes are hidden */
 }
 
-/* Each Box: same size, fixed position inside container */
+/* Each Box: 300x400, absolutely positioned */
 .box {
   position: absolute;
-  width: 400px;
+  width: 300px;
   height: 400px;
   border-radius: 10px;
   background: #fff;
   text-align: center;
-  transition: opacity 0.3s ease;
   overflow: hidden;
+  transition: opacity 0.3s ease;
 }
 
-/* Box Image */
+/* The image inside each box */
 .box-img {
   width: 100%;
   height: 100%;
@@ -376,27 +376,27 @@ body {
   text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-/* Left Box: half out of the container on the left */
+/* Left Box: half out on left (150px visible, 150px hidden) */
 .box-left {
-  left: -200px; /* 200px out, 200px in */
+  left: -150px;  /* from -150 to +150 => half in the container */
   top: 0;
-  filter: blur(3px) brightness(0.9);
+  filter: blur(2px) brightness(0.9);
   opacity: 0.7;
 }
 
-/* Center Box: fully visible in the middle */
+/* Center Box: fully in the middle (from x=300 to x=600) */
 .box-center {
-  left: 250px; /* Enough so it's fully in view (900 - 400 = 500 leftover) */
+  left: 300px;
   top: 0;
-  opacity: 1;
   filter: none;
+  opacity: 1;
 }
 
-/* Right Box: half out of the container on the right */
+/* Right Box: half out on right (from x=750 to x=1050 => 900 to 1050 hidden) */
 .box-right {
-  left: 600px; /* 300px in, 100px out (since container is 900 wide) */
+  left: 750px;
   top: 0;
-  filter: blur(3px) brightness(0.9);
+  filter: blur(2px) brightness(0.9);
   opacity: 0.7;
 }
 
@@ -428,7 +428,7 @@ body {
   right: 0;
 }
 
-/* Adjust for smaller screens */
+/* Adjust for smaller screens if needed */
 @media (max-width: 768px) {
   .slider-container {
     width: 90%;
@@ -436,16 +436,16 @@ body {
     height: 300px;
   }
   .box {
-    width: 250px;
+    width: 200px;
     height: 300px;
   }
   .box-left {
-    left: -125px;
+    left: -100px;
   }
   .box-center {
-    left: 175px;
+    left: 200px;
   }
   .box-right {
-    left: 400px;
+    left: 500px;
   }
 }
