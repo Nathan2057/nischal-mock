@@ -185,14 +185,6 @@ body {
 /* Left side: text content */
 .hero-content {
   max-width: 900px;
-  padding: 2rem; /* inner spacing */
-  background: rgba(220, 180, 255, 0.15);  /* light purple with transparency */
-  border: 1px solid rgba(220, 180, 255, 0.6); /* light purple border */
-  border-radius: 12px; /* rounded corners */
-  box-shadow: 
-    0 0 8px rgba(220, 180, 255, 0.8),
-    0 0 16px rgba(220, 180, 255, 0.6);
-  position: relative; /* ensures the box-shadow appears properly */
 }
 
 
