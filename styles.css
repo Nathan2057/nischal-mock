@@ -113,17 +113,33 @@ body {
   margin-bottom: 1rem;
   font-weight: 700;
   line-height: 1.2;
+  color: #fff;
 }
 
 .hero-content .accent {
-  color: #6cd4f3; /* Accent color */
+  color: #6cd4f3;  /* Accent color for heading text */
 }
 
+/* Style for the paragraph text */
 .hero-content p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   color: #cfcfcf;
 }
+
+/* Blinking cursor for typewriter effect */
+#typed-heading::after,
+#typed-paragraph::after {
+  animation: blink 0.7s infinite;
+  margin-left: 3px;
+  color: #6cd4f3; /* Matches accent color */
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 
 .btn-cv {
   display: inline-block;
