@@ -336,11 +336,12 @@ body {
 /* Slider Container */
 .slider-container {
   position: relative;
-  width: 700px;   /* Adjust as needed */
-  height: 400px;  /* Enough for images */
+  width: 700px;         /* Example width */
+  height: 400px;        /* Example height */
   margin: 0 auto;
-  perspective: 1200px; /* Enables 3D transforms */
-  overflow: hidden;     /* Just in case, but fully visible anyway */
+  perspective: 1200px;  /* For any 3D transforms if needed */
+  overflow: visible;    /* Allow buttons outside the container to show */
+  background: #daf0ff;  /* Demo background */
 }
 
 /* Each Box: absolutely placed. We'll keep them close together. */
@@ -409,40 +410,40 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: transparent; /* No background, use only image */
+  background: transparent; /* No background, image only */
   border: none;
   cursor: pointer;
-  z-index: 15;
+  z-index: 100;           /* High z-index to ensure visibility */
   padding: 0;
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Style the arrow images */
+/* Style for the arrow images */
 .nav-btn img {
   width: 40px;        /* Adjust size as needed */
   height: auto;
   display: block;
-  /* Neon glow effect using drop-shadow */
   filter: drop-shadow(0 0 8px #6cd4f3) drop-shadow(0 0 16px #6cd4f3);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* Hover effects: scale up and slight rotation */
+/* Hover effects: scale and rotate */
 .nav-btn:hover {
   transform: translateY(-50%) scale(1.1) rotate(5deg);
   filter: drop-shadow(0 0 16px #6cd4f3) drop-shadow(0 0 32px #6cd4f3);
 }
 
-/* Positioning for previous and next buttons */
+/* Positioning for the previous button */
 .nav-btn.prev {
-  left: -3rem;  /* Adjust if needed to move further out or in */
+  left: -3rem;  /* Adjust to move further out/in */
 }
 
+/* Positioning for the next button */
 .nav-btn.next {
-  right: -3rem; /* Adjust if needed to move further out or in */
+  right: -3rem; /* Adjust to move further out/in */
 }
 
-/* Responsive adjustments for nav buttons */
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .nav-btn img {
     width: 30px;
@@ -453,7 +454,7 @@ body {
   .nav-btn.next {
     right: -2rem;
   }
-} /* <-- This closing brace was missing */
+}
  
 /* 3D Rolling Keyframes */
 @keyframes rollOutLeft {
