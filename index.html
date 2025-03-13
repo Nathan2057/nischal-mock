@@ -2,63 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I.M. Portfolio</title>
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for Social Icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nischal Tritalo</title>
+  <!-- Import a font (optional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for social icons (optional) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnH2N2ZAtzY2cI/tU2nWv7nEz0S4yfP5ZfnZ2v9sz4OBt6S2lCWexGtXoP5ZLTx2k5E5avzJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
   />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Navigation Bar -->
-  <nav>
-    <!-- Left: GENNEX Star Logo -->
-    <div class="logo-container">
-      <div class="star"></div>
-      <div class="ribbon left"></div>
-      <div class="ribbon right"></div>
-      <h1 class="logo-text">GENNEX</h1>
-      <div class="bottom-bar"></div>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="logo">
+      <h2>Nischal Trital</h2>
     </div>
-
-    <!-- Center: Navigation Menu -->
-    <div class="nav-menu">
-      <a href="#">Projects</a>
-      <a href="#">Technologies</a>
-      <a href="#">About Me</a>
-    </div>
-
-    <!-- Right: Social Icons -->
+    <nav class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#technologies">Technologies</a>
+      <a href="#about">About me</a>
+    </nav>
     <div class="social-icons">
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+      <!-- Replace # with your actual profile links -->
+      <a href="#" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="#" target="_blank" aria-label="GitHub">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="#" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero Section -->
-  <section class="hero-container">
-    <div class="hero-text">
-      <h1>Hello, I'm <span class="highlight">Iaroslav</span>,</h1>
-      <h2>Frontend Developer</h2>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Hello, I’m <span class="accent">Nischal</span>,<br> frontend developer</h1>
       <p>
-        Former digital-marketing specialist, seeking to apply competent
-        development skills with focus on collaboration, communication,
+        Former digital-marketing specialist, seeking to apply competent 
+        development skills with a focus on collaboration, communication, 
         and passion.
       </p>
-      <button class="download-btn">Download CV</button>
+      <a href="#" class="btn-cv" download>Download CV</a>
     </div>
-    <div class="hero-image">
-      <img src="profile.jpg" alt="Your Profile" />
-      <div class="circle-overlay"></div>
+
+    <!-- Decorative circles & profile image container -->
+    <div class="hero-image-wrapper">
+      <div class="circle circle-1"></div>
+      <div class="circle circle-2"></div>
+      <!-- Replace 'profile.jpg' with your actual image source -->
+      <img src="profile.jpg" alt="Profile Picture" class="profile-img" />
     </div>
   </section>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
 </body>
 </html>
