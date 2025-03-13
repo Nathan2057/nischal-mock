@@ -1,88 +1,95 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Example data: multiple images + titles
   const projects = [
     { src: 'images/project1.png', title: 'Project One' },
     { src: 'images/project2.png', title: 'Project Two' },
     { src: 'images/project3.png', title: 'Project Three' },
     { src: 'images/project4.png', title: 'Project Four' },
     { src: 'images/project5.png', title: 'Project Five' },
-    // Add more if needed
+    // Add more as needed
   ];
   
-  // Box references
-  const leftBoxImg = document.querySelector('.box-left .box-img');
-  const leftBoxTitle = document.querySelector('.box-left .box-title');
-  const centerBoxImg = document.querySelector('.box-center .box-img');
-  const centerBoxTitle = document.querySelector('.box-center .box-title');
-  const rightBoxImg = document.querySelector('.box-right .box-img');
-  const rightBoxTitle = document.querySelector('.box-right .box-title');
+  const total = projects.length;
+  let currentIndex = 0;
   
-  // Box containers (for fade effect)
-  const boxLeft = document.querySelector('.box-left');
+  // Box elements
+  const boxLeft   = document.querySelector('.box-left');
   const boxCenter = document.querySelector('.box-center');
-  const boxRight = document.querySelector('.box-right');
+  const boxRight  = document.querySelector('.box-right');
   
-  // Buttons
+  // Box images & titles
+  const leftImg   = boxLeft.querySelector('.box-img');
+  const leftTitle = boxLeft.querySelector('.box-title');
+  const centerImg = boxCenter.querySelector('.box-img');
+  const centerTitle = boxCenter.querySelector('.box-title');
+  const rightImg  = boxRight.querySelector('.box-img');
+  const rightTitle = boxRight.querySelector('.box-title');
+  
+  // Nav buttons
   const prevBtn = document.querySelector('.prev');
   const nextBtn = document.querySelector('.next');
   
-  let currentIndex = 0;
-  const total = projects.length;
-  
-  // Helper to wrap index
+  // Wrap index in [0, total)
   function wrapIndex(i) {
     return (i + total) % total;
   }
   
-  // Updates images/titles for each box
+  // Update the content of each box
   function updateBoxes() {
-    const leftIndex = wrapIndex(currentIndex - 1);
-    const rightIndex = wrapIndex(currentIndex + 1);
+    const leftIndex   = wrapIndex(currentIndex - 1);
+    const centerIndex = wrapIndex(currentIndex);
+    const rightIndex  = wrapIndex(currentIndex + 1);
     
-    leftBoxImg.src = projects[leftIndex].src;
-    leftBoxTitle.textContent = projects[leftIndex].title;
+    leftImg.src   = projects[leftIndex].src;
+    leftTitle.textContent = projects[leftIndex].title;
     
-    centerBoxImg.src = projects[currentIndex].src;
-    centerBoxTitle.textContent = projects[currentIndex].title;
+    centerImg.src = projects[centerIndex].src;
+    centerTitle.textContent = projects[centerIndex].title;
     
-    rightBoxImg.src = projects[rightIndex].src;
-    rightBoxTitle.textContent = projects[rightIndex].title;
+    rightImg.src  = projects[rightIndex].src;
+    rightTitle.textContent = projects[rightIndex].title;
   }
   
-  // Initial load
+  // Initialize
   updateBoxes();
   
-  // Applies fade animation, updates content at midpoint
-  function fadeTransition(isNext) {
-    // Add fade-change class to each box
-    boxLeft.classList.add('fade-change');
-    boxCenter.classList.add('fade-change');
-    boxRight.classList.add('fade-change');
+  // 3D Roll Animation
+  function rollNext() {
+    // Animate center box rolling out to the left
+    boxCenter.classList.add('roll-out-left');
     
-    // Wait ~half of animation (350ms) -> update images
+    // Animate right box rolling in from the right
+    boxRight.classList.add('roll-in-right');
+    
+    // After animation (0.7s), update index & reset classes
     setTimeout(() => {
-      if (isNext) {
-        currentIndex = wrapIndex(currentIndex + 1);
-      } else {
-        currentIndex = wrapIndex(currentIndex - 1);
-      }
+      currentIndex = wrapIndex(currentIndex + 1);
       updateBoxes();
-    }, 350);
-    
-    // Remove fade-change class after animation ends (700ms)
-    setTimeout(() => {
-      boxLeft.classList.remove('fade-change');
-      boxCenter.classList.remove('fade-change');
-      boxRight.classList.remove('fade-change');
+      
+      // Remove animation classes
+      boxCenter.classList.remove('roll-out-left');
+      boxRight.classList.remove('roll-in-right');
     }, 700);
   }
   
-  // Button Listeners
-  prevBtn.addEventListener('click', () => {
-    fadeTransition(false);
-  });
+  function rollPrev() {
+    // Animate center box rolling out to the right
+    boxCenter.classList.add('roll-out-right');
+    
+    // Animate left box rolling in from the left
+    boxLeft.classList.add('roll-in-left');
+    
+    // After animation, update index & reset classes
+    setTimeout(() => {
+      currentIndex = wrapIndex(currentIndex - 1);
+      updateBoxes();
+      
+      // Remove animation classes
+      boxCenter.classList.remove('roll-out-right');
+      boxLeft.classList.remove('roll-in-left');
+    }, 700);
+  }
   
-  nextBtn.addEventListener('click', () => {
-    fadeTransition(true);
-  });
+  // Button listeners
+  nextBtn.addEventListener('click', rollNext);
+  prevBtn.addEventListener('click', rollPrev);
 });
