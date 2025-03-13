@@ -22,11 +22,14 @@ nav {
     z-index: 1000;
 }
 
-/* Logo */
-.logo {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
+/* Logo with MP4 Video */
+.logo video {
+    width: 120px; /* Adjust as needed */
+    height: auto;
+    display: block;
+    border-radius: 10px; /* Optional rounded corners */
+}
+
 }
 
 /* Centered Navigation Menu */
