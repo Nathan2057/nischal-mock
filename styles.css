@@ -382,7 +382,7 @@ body {
 
 /* LEFT BOX: scaled to 60%, blurred, placed near center box */
 .box-left {
-  left: 40px;           /* minimal gap from center */
+  left: -80px;           /* minimal gap from center */
   transform: scale(0.88) translateZ(0);
   filter: blur(3.5px);
   z-index: 1;
@@ -397,7 +397,7 @@ body {
 
 /* RIGHT BOX: scaled to 60%, blurred, placed near center box */
 .box-right {
-  left: 360px;          /* minimal gap from center */
+  left: 480px;          /* minimal gap from center */
   transform: scale(0.88) translateZ(0);
   filter: blur(3.5px);
   z-index: 1;
@@ -433,12 +433,12 @@ body {
 
 /* Positioning for the previous button */
 .nav-btn.prev {
-  left: -3rem;  /* Adjust to move further out/in */
+  left: -9rem;  /* Adjust to move further out/in */
 }
 
 /* Positioning for the next button */
 .nav-btn.next {
-  right: -3rem; /* Adjust to move further out/in */
+  right: -9rem; /* Adjust to move further out/in */
 }
 
 /* Responsive adjustments */
@@ -507,4 +507,3 @@ body {
     left: 250px;
   }
 }
-
